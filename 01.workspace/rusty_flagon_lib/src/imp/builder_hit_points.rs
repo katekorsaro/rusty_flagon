@@ -1,7 +1,7 @@
 use crate::*;
 
 impl Builder {
-    pub fn hit_points(&mut self) -> Result<(), FailedTo> {
+    pub(crate) fn hit_points(&mut self) -> Result<(), FailedTo> {
         fn roll_hit_die(roller: &mut Roller, sides: u8) -> u8 {
             loop {
                 let hp = roller.dx(sides);

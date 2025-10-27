@@ -1,7 +1,7 @@
 use crate::*;
 
 impl Builder {
-    pub fn saving_throws(&mut self) -> Result<(), FailedTo> {
+    pub(crate) fn saving_throws(&mut self) -> Result<(), FailedTo> {
         fn from_slice(values: &[u8], character: &mut Character) {
             character.save_death = values[0];
             character.save_wands = values[1];

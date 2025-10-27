@@ -1,7 +1,7 @@
 use crate::*;
 
 impl Builder {
-    pub fn modifiers(&mut self) -> Result<(), FailedTo> {
+    pub(crate) fn modifiers(&mut self) -> Result<(), FailedTo> {
         fn modifier(ability: u8) -> i8 {
             match ability {
                 3 => -3,

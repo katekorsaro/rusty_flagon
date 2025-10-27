@@ -22,7 +22,7 @@ impl Builder {
             _ => false,
         }
     }
-    pub fn class(&mut self) -> Result<(), FailedTo> {
+    pub(crate) fn class(&mut self) -> Result<(), FailedTo> {
         let suggestion = [
             Class::Elf,
             Class::Halfling,
