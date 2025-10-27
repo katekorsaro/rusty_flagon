@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, Default, PartialEq, Clone)]
 pub struct O {
     pub(crate) strength: u8,
@@ -6,4 +8,5 @@ pub struct O {
     pub(crate) dexterity: u8,
     pub(crate) constitution: u8,
     pub(crate) charisma: u8,
+    pub(crate) class: Class,
 }
