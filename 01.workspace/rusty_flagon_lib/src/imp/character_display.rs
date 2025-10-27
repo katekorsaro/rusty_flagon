@@ -6,7 +6,7 @@ impl Display for Character {
         let to_string = format!(
             r#"Class: {}
 STR {} ({}) INT {} ({}) WIS {} ({}) DEX {} ({}) CON {} ({}) CHA {} ({})
-Thac0: {}
+Thac0: {} (melee {}, ranged {})
 HP: {}
 Saving Throwns: D: {} W: {} P: {} B: {} S: {}
 Alignment: {}
@@ -35,6 +35,8 @@ Starting Gold: {}
             self.charisma,
             self.mod_charisma,
             self.thac0,
+            self.thac0_melee,
+            self.thac0_ranged,
             self.hp,
             self.save_death,
             self.save_wands,
