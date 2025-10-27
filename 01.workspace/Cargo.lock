@@ -89,6 +89,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "rusty_flagon_cli"
+version = "0.1.0"
+dependencies = [
+ "rusty_flagon_lib",
+]
+
+[[package]]
 name = "rusty_flagon_lib"
 version = "0.1.0"
 dependencies = [
