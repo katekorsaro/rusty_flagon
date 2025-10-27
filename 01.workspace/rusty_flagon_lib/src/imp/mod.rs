@@ -6,6 +6,7 @@ pub mod builder_hit_points;
 pub mod builder_modifiers;
 pub mod builder_new;
 pub mod builder_saving_throws;
+pub mod builder_starting_gold;
 pub mod builder_thac0;
 pub mod roller_3d6;
 pub mod roller_dx;

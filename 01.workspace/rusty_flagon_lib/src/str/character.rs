@@ -23,4 +23,5 @@ pub struct O {
     pub(crate) save_spell: u8,
     pub(crate) hp: u8,
     pub(crate) alignment: Alignment,
+    pub(crate) starting_gold: u8,
 }
