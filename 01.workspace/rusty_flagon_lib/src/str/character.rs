@@ -2,10 +2,10 @@ use crate::*;
 
 #[derive(Debug, Default, PartialEq, Clone)]
 pub struct O {
-    strength: u8,
-    intelligence: u8,
-    widsom: u8,
-    dexterity: u8,
-    constitution: u8,
-    charisma: u8,
+    pub(crate) strength: u8,
+    pub(crate) intelligence: u8,
+    pub(crate) wisdom: u8,
+    pub(crate) dexterity: u8,
+    pub(crate) constitution: u8,
+    pub(crate) charisma: u8,
 }
