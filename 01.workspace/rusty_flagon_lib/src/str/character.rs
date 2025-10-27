@@ -21,4 +21,5 @@ pub struct O {
     pub(crate) save_paralysis: u8,
     pub(crate) save_breath: u8,
     pub(crate) save_spell: u8,
+    pub(crate) hp: u8,
 }
