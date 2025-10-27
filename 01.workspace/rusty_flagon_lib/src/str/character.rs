@@ -16,4 +16,9 @@ pub struct O {
     pub(crate) mod_charisma: i8,
     pub(crate) class: Class,
     pub(crate) thac0: u8,
+    pub(crate) save_death: u8,
+    pub(crate) save_wands: u8,
+    pub(crate) save_paralysis: u8,
+    pub(crate) save_breath: u8,
+    pub(crate) save_spell: u8,
 }
