@@ -93,4 +93,52 @@ mod unit_tests {
         let _ = builder.class();
         assert_eq!(builder.character.class, Class::Elf);
     }
+    #[test]
+    fn test_edge_case_all_stats_high() {
+        let mut builder = prepare_builder(13, 13, 13, 13, 13, 13);
+        let _ = builder.class();
+        assert_eq!(builder.character.class, Class::Elf); // Elf is first in the list
+    }
+    #[test]
+    fn test_edge_case_all_stats_low() {
+        let mut builder = prepare_builder(8, 8, 8, 8, 8, 8);
+        let _ = builder.class();
+        assert_eq!(builder.character.class, Class::Fighter); // Should default to Fighter
+    }
+    #[test]
+    fn test_edge_case_dwarf_can_be_false() {
+        let mut builder = prepare_builder(13, 3, 3, 3, 8, 3); // con < 9
+        let _ = builder.class();
+        assert_ne!(builder.character.class, Class::Dwarf);
+        assert_eq!(builder.character.class, Class::Fighter);
+    }
+    #[test]
+    fn test_edge_case_elf_can_be_false() {
+        let mut builder = prepare_builder(13, 8, 3, 3, 3, 3); // int < 9
+        let _ = builder.class();
+        assert_ne!(builder.character.class, Class::Elf);
+    }
+    #[test]
+    fn test_edge_case_halfling_can_be_false() {
+        let mut builder = prepare_builder(13, 3, 3, 13, 8, 3); // con < 9
+        let _ = builder.class();
+        assert_ne!(builder.character.class, Class::Halfling);
+        let mut builder = prepare_builder(13, 3, 3, 8, 9, 3); // dex < 9
+        let _ = builder.class();
+        assert_ne!(builder.character.class, Class::Halfling);
+    }
+    #[test]
+    fn test_edge_case_elf_and_halfling() {
+        // High STR, INT, DEX, CON
+        let mut builder = prepare_builder(13, 13, 3, 13, 9, 3);
+        let _ = builder.class();
+        assert_eq!(builder.character.class, Class::Elf); // Elf is checked before Halfling
+    }
+    #[test]
+    fn test_edge_case_halfling_and_dwarf() {
+        // High STR, DEX, CON
+        let mut builder = prepare_builder(13, 3, 3, 13, 9, 3);
+        let _ = builder.class();
+        assert_eq!(builder.character.class, Class::Halfling); // Halfling is checked before Dwarf
+    }
 }
