@@ -9,6 +9,7 @@ use rand::*;
 
 use crate::str::roller::O as Roller;
 
+pub use crate::str::alignment::E as Alignment;
 pub use crate::str::builder::O as Builder;
 pub use crate::str::character::O as Character;
 pub use crate::str::class::E as Class;

@@ -22,4 +22,5 @@ pub struct O {
     pub(crate) save_breath: u8,
     pub(crate) save_spell: u8,
     pub(crate) hp: u8,
+    pub(crate) alignment: Alignment,
 }

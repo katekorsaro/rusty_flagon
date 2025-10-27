@@ -1,4 +1,5 @@
 pub mod builder_abilities;
+pub mod builder_alignment;
 pub mod builder_build;
 pub mod builder_class;
 pub mod builder_hit_points;
