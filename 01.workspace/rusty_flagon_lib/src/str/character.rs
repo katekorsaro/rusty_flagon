@@ -8,5 +8,11 @@ pub struct O {
     pub(crate) dexterity: u8,
     pub(crate) constitution: u8,
     pub(crate) charisma: u8,
+    pub(crate) mod_strength: i8,
+    pub(crate) mod_intelligence: i8,
+    pub(crate) mod_wisdom: i8,
+    pub(crate) mod_dexterity: i8,
+    pub(crate) mod_constitution: i8,
+    pub(crate) mod_charisma: i8,
     pub(crate) class: Class,
 }
