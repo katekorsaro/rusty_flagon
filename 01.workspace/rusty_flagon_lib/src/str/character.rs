@@ -71,6 +71,12 @@ impl Character {
     pub fn thac0(&self) -> u8 {
         self.thac0
     }
+    pub fn thac0_melee(&self) -> u8 {
+        self.thac0_melee
+    }
+    pub fn thac0_ranged(&self) -> u8 {
+        self.thac0_ranged
+    }
     pub fn save_death(&self) -> u8 {
         self.save_death
     }
