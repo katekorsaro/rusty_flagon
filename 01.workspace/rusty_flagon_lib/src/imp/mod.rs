@@ -8,6 +8,7 @@ pub mod builder_new;
 pub mod builder_saving_throws;
 pub mod builder_starting_gold;
 pub mod builder_thac0;
+pub mod character_display;
 pub mod roller_3d6;
 pub mod roller_dx;
 pub mod roller_new;
