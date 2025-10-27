@@ -15,4 +15,5 @@ pub struct O {
     pub(crate) mod_constitution: i8,
     pub(crate) mod_charisma: i8,
     pub(crate) class: Class,
+    pub(crate) thac0: u8,
 }
