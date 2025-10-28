@@ -196,42 +196,44 @@ impl Builder {
         let wealth = self.character.starting_gold.saturating_sub(55);
         let wealth = wealth / 20 + 1;
         let starter_pack = match (self.character.class, wealth) {
+            (_, 0) => Vec::new(),
             // cleric
             (Class::Cleric, 1) => cleric_pack_50gp,
             (Class::Cleric, 2) => cleric_pack_70gp,
             (Class::Cleric, 3) => cleric_pack_90gp,
-            (Class::Cleric, 4) => cleric_pack_110gp,
+            (Class::Cleric, _) => cleric_pack_110gp,
             // dwarf
             (Class::Dwarf, 1) => dwarf_pack_50gp,
             (Class::Dwarf, 2) => dwarf_pack_70gp,
             (Class::Dwarf, 3) => dwarf_pack_90gp,
-            (Class::Dwarf, 4) => dwarf_pack_110gp,
+            (Class::Dwarf, _) => dwarf_pack_110gp,
             // elf
             (Class::Elf, 1) => elf_pack_50gp,
             (Class::Elf, 2) => elf_pack_70gp,
             (Class::Elf, 3) => elf_pack_90gp,
-            (Class::Elf, 4) => elf_pack_110gp,
+            (Class::Elf, _) => elf_pack_110gp,
             // fighter
             (Class::Fighter, 1) => fighter_pack_50gp,
             (Class::Fighter, 2) => fighter_pack_70gp,
             (Class::Fighter, 3) => fighter_pack_90gp,
-            (Class::Fighter, 4) => fighter_pack_110gp,
+            (Class::Fighter, _) => fighter_pack_110gp,
             // halfling
             (Class::Halfling, 1) => halfling_pack_50gp,
             (Class::Halfling, 2) => halfling_pack_70gp,
             (Class::Halfling, 3) => halfling_pack_90gp,
-            (Class::Halfling, 4) => halfling_pack_110gp,
+            (Class::Halfling, _) => halfling_pack_110gp,
             // magic user
             (Class::MagicUser, 1) => magic_user_pack_50gp,
             (Class::MagicUser, 2) => magic_user_pack_70gp,
             (Class::MagicUser, 3) => magic_user_pack_90gp,
-            (Class::MagicUser, 4) => magic_user_pack_110gp,
+            (Class::MagicUser, _) => magic_user_pack_110gp,
             // thief
             (Class::Thief, 1) => thief_pack_50gp,
             (Class::Thief, 2) => thief_pack_70gp,
             (Class::Thief, 3) => thief_pack_90gp,
-            (Class::Thief, 4) => thief_pack_110gp,
-            _ => Vec::new(),
+            (Class::Thief, _) => thief_pack_110gp,
+            // none
+            (Class::None, _) => Vec::new(),
         };
         self.character.equipment = starter_pack
             .into_iter()
