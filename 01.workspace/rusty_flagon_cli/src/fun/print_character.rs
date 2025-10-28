@@ -31,7 +31,7 @@ fn format_modifier_value(value: i8) -> ColoredString {
     } else if value == 0 {
         value.to_string().bright_white().bold()
     } else {
-        value.to_string().bright_green().bold()
+        format!("+{}", value).bright_green().bold()
     }
 }
 
@@ -61,52 +61,58 @@ fn format_starting_gold(value: u8) -> ColoredString {
 }
 
 fn format_equipment(items: &[(String, u8)]) -> ColoredString {
-    let item_names: Vec<String> = items.iter()
-        .map(|item| { item.0.clone() })
-        .collect();
+    let item_names: Vec<String> = items.iter().map(|item| item.0.clone()).collect();
     let item_list = item_names.join(", ");
     item_list.bright_white()
 }
 
+fn format_name(value: &str) -> ColoredString {
+    format!("# {}", value).bright_cyan().bold()
+}
+
 pub fn run(character: &Character) {
-    println!("Class {}", format_class(character.class()));
+    println!("{}", format_name(&character.name()));
+    println!();
+    println!("Class:     {}", format_class(character.class()));
     println!("Alignment: {}", format_alignment(character.alignment()));
+    print!("Abilities: ");
     print!("STR {} ", format_ability_value(character.strength()));
-    print!("({})  ", format_modifier_value(character.mod_strength()));
+    print!("({}), ", format_modifier_value(character.mod_strength()));
     print!("INT {} ", format_ability_value(character.intelligence()));
     print!(
-        "({})  ",
+        "({}), ",
         format_modifier_value(character.mod_intelligence())
     );
     print!("WIS {} ", format_ability_value(character.wisdom()));
-    print!("({})  ", format_modifier_value(character.mod_wisdom()));
+    print!("({}), ", format_modifier_value(character.mod_wisdom()));
     print!("DEX {} ", format_ability_value(character.dexterity()));
-    print!("({})  ", format_modifier_value(character.mod_dexterity()));
+    print!("({}), ", format_modifier_value(character.mod_dexterity()));
     print!("CON {} ", format_ability_value(character.constitution()));
     print!(
-        "({})  ",
+        "({}), ",
         format_modifier_value(character.mod_constitution())
     );
     print!("CHA {} ", format_ability_value(character.charisma()));
     println!("({})", format_modifier_value(character.mod_charisma()));
-    print!("Death {}  ", format_saving_throws(character.save_death()));
-    print!("Wands {}  ", format_saving_throws(character.save_wands()));
+    print!("Saves:     ");
+    print!("Death {}, ", format_saving_throws(character.save_death()));
+    print!("Wands {}, ", format_saving_throws(character.save_wands()));
     print!(
-        "Paralysis {}  ",
+        "Paralysis {}, ",
         format_saving_throws(character.save_paralysis())
     );
-    print!("Breath {}  ", format_saving_throws(character.save_breath()));
+    print!("Breath {}, ", format_saving_throws(character.save_breath()));
     println!("Spell {}", format_saving_throws(character.save_spell()));
-    println!("HP {}", format_hp(character.hp()));
+    println!("HP:        {}", format_hp(character.hp()));
     println!(
-        "Thac0 {} (melee: {}  ranged: {})",
+        "Thac0:     {} (melee: {}  ranged: {})",
         format_thac0(character.thac0()),
         format_thac0(character.thac0_melee()),
         format_thac0(character.thac0_ranged())
     );
     println!("Equipment: {}", format_equipment(&character.equipment()));
     println!(
-        "Starting Gold: {}",
+        "Gold:      {}",
         format_starting_gold(character.starting_gold())
     );
 }
