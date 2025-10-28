@@ -50,7 +50,7 @@ fn format_thac0(value: u8) -> ColoredString {
 fn format_alignment(value: Alignment) -> ColoredString {
     match value {
         Alignment::Law => "Law".bright_green().bold(),
-        Alignment::Neutral => "Neutrality".bright_white().bold(),
+        Alignment::Neutrality => "Neutrality".bright_white().bold(),
         Alignment::Chaos => "Chaos".bright_red().bold(),
         _ => "-".bright_white().bold(),
     }

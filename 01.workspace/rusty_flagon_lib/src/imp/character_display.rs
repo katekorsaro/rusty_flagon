@@ -45,7 +45,7 @@ Starting Gold: {}
             self.save_spell,
             match self.alignment {
                 crate::Alignment::Law => "L",
-                crate::Alignment::Neutral => "N",
+                crate::Alignment::Neutrality => "N",
                 crate::Alignment::Chaos => "C",
                 _ => "-",
             },

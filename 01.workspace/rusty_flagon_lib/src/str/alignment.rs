@@ -3,6 +3,6 @@ pub enum E {
     #[default]
     None,
     Law,
-    Neutral,
+    Neutrality,
     Chaos,
 }
