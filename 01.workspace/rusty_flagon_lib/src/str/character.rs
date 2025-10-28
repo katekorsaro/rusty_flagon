@@ -28,6 +28,7 @@ pub struct O {
     pub(crate) starting_gold: u8,
     pub(crate) equipment: Vec<(String, u8)>,
     pub(crate) name: String,
+    pub(crate) ac: i8,
 }
 
 impl Character {
@@ -108,5 +109,8 @@ impl Character {
     }
     pub fn name(&self) -> String {
         self.name.clone()
+    }
+    pub fn ac(&self) -> i8 {
+        self.ac
     }
 }

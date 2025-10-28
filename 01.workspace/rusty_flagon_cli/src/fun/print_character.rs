@@ -70,6 +70,10 @@ fn format_name(value: &str) -> ColoredString {
     format!("# {}", value).bright_cyan().bold()
 }
 
+fn format_ac(value: i8) -> ColoredString {
+    value.to_string().bright_white().bold()
+}
+
 pub fn run(character: &Character) {
     println!("{}", format_name(&character.name()));
     println!();
@@ -110,6 +114,7 @@ pub fn run(character: &Character) {
         format_thac0(character.thac0_melee()),
         format_thac0(character.thac0_ranged())
     );
+    println!("AC:        {}", format_ac(character.ac()));
     println!("Equipment: {}", format_equipment(&character.equipment()));
     println!(
         "Gold:      {}",
