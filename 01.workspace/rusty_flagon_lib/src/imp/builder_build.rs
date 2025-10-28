@@ -11,6 +11,7 @@ impl Builder {
         self.alignment()?;
         self.starting_gold()?;
         self.equipment()?;
+        self.name()?;
         Ok(self.character.clone())
     }
 }

@@ -193,7 +193,8 @@ impl Builder {
             ("Rope (50')", 1),
             ("Backpack", 5),
         ];
-        let wealth = (self.character.starting_gold - 55) / 20 + 1;
+        let wealth = self.character.starting_gold.saturating_sub(55);
+        let wealth = wealth / 20 + 1;
         let starter_pack = match (self.character.class, wealth) {
             // cleric
             (Class::Cleric, 1) => cleric_pack_50gp,
@@ -234,7 +235,9 @@ impl Builder {
         };
         self.character.equipment = starter_pack
             .into_iter()
-            .inspect(|item| self.character.starting_gold -= item.1)
+            .inspect(|item| {
+                self.character.starting_gold = self.character.starting_gold.saturating_sub(item.1)
+            })
             .map(|item| (item.0.to_string(), item.1))
             .collect();
         Ok(())
