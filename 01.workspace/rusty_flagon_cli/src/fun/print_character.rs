@@ -60,6 +60,14 @@ fn format_starting_gold(value: u8) -> ColoredString {
     value.to_string().bright_yellow().bold()
 }
 
+fn format_equipment(items: &[(String, u8)]) -> ColoredString {
+    let item_names: Vec<String> = items.iter()
+        .map(|item| { item.0.clone() })
+        .collect();
+    let item_list = item_names.join(", ");
+    item_list.bright_white()
+}
+
 pub fn run(character: &Character) {
     println!("Class {}", format_class(character.class()));
     println!("Alignment: {}", format_alignment(character.alignment()));
@@ -96,6 +104,7 @@ pub fn run(character: &Character) {
         format_thac0(character.thac0_melee()),
         format_thac0(character.thac0_ranged())
     );
+    println!("Equipment: {}", format_equipment(&character.equipment()));
     println!(
         "Starting Gold: {}",
         format_starting_gold(character.starting_gold())

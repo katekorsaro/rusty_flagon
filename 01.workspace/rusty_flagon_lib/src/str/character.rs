@@ -26,6 +26,7 @@ pub struct O {
     pub(crate) hp: u8,
     pub(crate) alignment: Alignment,
     pub(crate) starting_gold: u8,
+    pub(crate) equipment: Vec<(String, u8)>,
 }
 
 impl Character {
@@ -100,5 +101,8 @@ impl Character {
     }
     pub fn starting_gold(&self) -> u8 {
         self.starting_gold
+    }
+    pub fn equipment(&self) -> Vec<(String, u8)> {
+        self.equipment.clone()
     }
 }

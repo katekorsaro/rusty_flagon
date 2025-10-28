@@ -2,6 +2,7 @@ pub mod builder_abilities;
 pub mod builder_alignment;
 pub mod builder_build;
 pub mod builder_class;
+pub mod builder_equipment;
 pub mod builder_hit_points;
 pub mod builder_modifiers;
 pub mod builder_new;

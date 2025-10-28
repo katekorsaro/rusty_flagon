@@ -10,6 +10,7 @@ impl Builder {
         self.hit_points()?;
         self.alignment()?;
         self.starting_gold()?;
+        self.equipment()?;
         Ok(self.character.clone())
     }
 }
