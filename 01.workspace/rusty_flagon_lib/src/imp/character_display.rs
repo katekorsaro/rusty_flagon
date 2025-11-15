@@ -3,13 +3,17 @@ use std::fmt::*;
 
 impl Display for Character {
     fn fmt(&self, f: &mut Formatter) -> Result {
+        let equipment: Vec<_> = self.equipment.iter().map(|tuple| tuple.0.clone()).collect();
+        let equipment = equipment.join(", ");
         let to_string = format!(
             r#"Class: {}
 STR {} ({}) INT {} ({}) WIS {} ({}) DEX {} ({}) CON {} ({}) CHA {} ({})
 Thac0: {} (melee {}, ranged {})
+AC: {}
 HP: {}
-Saving Throwns: D: {} W: {} P: {} B: {} S: {}
+Saving Throws: D: {} W: {} P: {} B: {} S: {}
 Alignment: {}
+Equipment: {}
 Starting Gold: {}
 "#,
             match self.class {
@@ -37,6 +41,7 @@ Starting Gold: {}
             self.thac0,
             self.thac0_melee,
             self.thac0_ranged,
+            self.ac,
             self.hp,
             self.save_death,
             self.save_wands,
@@ -49,6 +54,7 @@ Starting Gold: {}
                 crate::Alignment::Chaos => "C",
                 _ => "-",
             },
+            equipment,
             self.starting_gold,
         );
         write!(f, "{}", to_string)
