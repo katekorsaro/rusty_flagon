@@ -1,6 +1,7 @@
 use crate::*;
 
 impl Builder {
+    /// Builds a [`Character`].
     pub fn build(&mut self) -> Result<Character, FailedTo> {
         self.abilities()?;
         self.class()?;
