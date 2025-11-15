@@ -2,6 +2,13 @@
 name = "rusty_flagon_lib"
 version = "1.0.0"
 edition = "2024"
+authors = ["Kate Korsaro <kate.korsaro@gmail.com>"]
+description = "A library for character generation for OSE Classic roleplaying game"
+license = "MIT"
+repository = "https://github.com/katekorsaro/rusty_flagon"
+homepage = "https://github.com/katekorsaro/rusty_flagon"
+documentation = "https://docs.rs/rusty_flagon_lib"
+keywords = ["rpg", "game", "fantasy", "library"]
 
 [dependencies]
 rand = "0.9.2"

@@ -2,6 +2,13 @@
 name = "rusty_flagon_cli"
 version = "1.0.0"
 edition = "2024"
+authors = ["Kate Korsaro <kate.korsaro@gmail.com>"]
+description = "A CLI character generator for OSE Classic roleplaying game"
+license = "MIT"
+repository = "https://github.com/katekorsaro/rusty_flagon"
+homepage = "https://github.com/katekorsaro/rusty_flagon"
+documentation = "https://docs.rs/rusty_flagon_cli"
+keywords = ["cli", "game", "rpg", "fantasy"]
 
 [dependencies]
 clap = { version = "4.5.51", features = ["derive"] }
